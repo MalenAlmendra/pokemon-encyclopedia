@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import {
-  Container,
-  ThemeProvider,
-  // makeStyles,
-} from "@material-ui/core";
+import { Container, ThemeProvider, makeStyles } from "@material-ui/core";
 import theme from "../Theme";
-import PokemonList from "../components/PokemonList";
+import PokemonContent from "./PokemonContent";
+import Aside from "./Aside";
 
-// const useStyle = makeStyles({
-//   title: {
-//     fontSize: 40,
-//   },
-// });
+const useStyle = makeStyles({
+  root: {
+    display: "flex",
+  },
+  title: {
+    fontSize: 40,
+  },
+});
 
 const App = () => {
-  // const classes = useStyle();
+  const classes = useStyle();
   const [pokemones, setPokemones] = useState({});
 
   useEffect(() => {
@@ -28,9 +28,10 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
+      <Container className={classes.root}>
         <Navbar />
-        <PokemonList pokemonList={pokemones} />
+        <Aside pokemonList={pokemones} />
+        <PokemonContent pokemonList={pokemones}/>
       </Container>
     </ThemeProvider>
   );

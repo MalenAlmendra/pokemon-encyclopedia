@@ -20,7 +20,13 @@ const estilo = makeStyles((theme) => ({
       marginRight:theme.spacing(2),
       marginLeft:theme.spacing(2)
   },
-  offset:theme.mixins.toolbar
+  offset:theme.mixins.toolbar,
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${360}px)`,
+      marginLeft: 360,
+    },
+  }
 }));
 
 const Navbar = () => {
@@ -28,7 +34,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar>
+      <AppBar className={classes.appBar}>
         <Toolbar className={classes.title}>
           <IconButton className={classes.menuButtom} edge="start" aria-laberl="Menu">
               <MenuIcon className={classes.icon} />

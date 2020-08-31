@@ -20,7 +20,7 @@ const PokemonList = ({pokemonList}) => {
         <Divider />
             {Object.keys(pokemonList).map((i)=>(
                 <>
-                <ListItem key={i} button>
+                <ListItem key={i} id={i} button>
                     <ListItemIcon>
                       <StarsIcon></StarsIcon>
                     </ListItemIcon>
